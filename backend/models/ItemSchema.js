@@ -5,7 +5,7 @@ const itemSchema = mongoose.Schema({
     required : true
   },
   item_done:{
-    type:boolean
+    type:Boolean
   }
 });
 const items = module.exports = mongoose.model('items',itemSchema);
