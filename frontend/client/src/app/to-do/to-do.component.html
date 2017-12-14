@@ -1,0 +1,33 @@
+<div class="text-center">
+  <div class="container">
+    <div class="row">
+      <div class="jumbotron">
+        <form #itemform="ngForm" class="form-inline" (ngSubmit)="addItems(itemform)">
+          <input type="text" class="form-control" name="itemname" ngModel required>
+          <button type="submit" class="btn btn-success">Add</button>
+        </form>
+        <p>{{message}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Item Name</th>
+                <th>Item Done</th>
+                <th>Delete Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor ="let item of ToDoItems">
+                <td>{{item.item_name}}</td>
+                <td><input type="checkbox" [checked] ="item.item_done" (click)="update(item)"></td>
+                <td><input type="button" class="btn btn-danger" value="Delete" (click)="delete(item._id)"></td>
+            </tr>
+        </tbody>
+    </table>
+  </div>
+</div>
